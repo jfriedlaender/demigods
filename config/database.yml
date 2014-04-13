@@ -1,0 +1,17 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: demigods_development
+  pool: 5
+  post: <%= ENV['BOXEN_POSTGRESQL_PORT'] || 5432 %>
+  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] || 'localhost' %>
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: demigods_test
+  pool: 5
+  post: <%= ENV['BOXEN_POSTGRESQL_PORT'] || 5432 %>
+  host: <%= ENV['POSTGRES_PORT_5432_TCP_ADDR'] || 'localhost' %>
+  
