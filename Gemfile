@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'unicorn'
+
 
 gem 'rails_12factor', group: :production
 
@@ -18,4 +20,3 @@ group :doc do
 end
 
 # Use unicorn as the app server
-# gem 'unicorn'
