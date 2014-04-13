@@ -25,4 +25,8 @@ class Character < ActiveRecord::Base
   validates :attr_wits_epic, numericality: {greater_than_or_equal_to: 0, less_than_or_equal_to: 10}
 
   ATTRIBUTES = %w( strength dexterity stamina charisma manipulation appearance perception intelligence wits )
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
