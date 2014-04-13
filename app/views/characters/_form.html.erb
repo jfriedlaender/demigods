@@ -1,41 +1,54 @@
-<%= form_for(@character) do |f| %>
+<%= form_for @character, html: {role: 'form'} do |f| %>
   <% if @character.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+    <div class='row'>
+      <div class='col-md-12'>
+        <div id="error_explanation">
+          <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
 
-      <ul>
-      <% @character.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+          <ul>
+          <% @character.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    <div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :player %><br>
-    <%= f.text_field :player %>
+  <div class="form-group">
+    <%= f.label :player %>
+    <%= f.text_field :player, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :calling %><br>
-    <%= f.text_field :calling %>
+  <div class="form-group">
+    <%= f.label :calling %>
+    <%= f.text_field :calling, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :nature %><br>
-    <%= f.text_field :nature %>
+  <div class="form-group">
+    <%= f.label :nature %>
+    <%= f.text_field :nature, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :pantheon %><br>
-    <%= f.text_field :pantheon %>
+  <div class="form-group">
+    <%= f.label :pantheon %>
+    <%= f.text_field :pantheon, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :role %><br>
-    <%= f.text_field :role %>
+  <div class="form-group">
+    <%= f.label :role %>
+    <%= f.text_field :role, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <hr>
+
+
+  <hr>
+  <div class="form-group">
+    <%= f.submit 'Save Character', class: 'btn btn-primary' %>
+    <% if f.object.new_record? %>
+      <%= link_to 'Back to List', characters_path, class: 'btn btn-default' %>
+    <% else %>
+      <%= link_to 'Cancel', character_path(@character), class: 'btn btn-default' %>
+    <% end %>
   </div>
 <% end %>

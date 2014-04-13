@@ -1,34 +1,23 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <h1>Character Sheet</h1>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @character.name %>
-</p>
+<div class='row'>
+  <div class='col-md-12'>
+    <h2><%= @character.name %> <small><%= @character.player %></small></h2>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-3'><h5><%= @character.calling %><br><small>Calling</small></h5></div>
+  <div class='col-md-3'><h5><%= @character.nature %><br><small>Nature</small></h5></div>
+  <div class='col-md-3'><h5><%= @character.pantheon %><br><small>Pantheon</small></h5></div>
+  <div class='col-md-3'><h5><%= @character.role.present? ? @character.role : 'N/A' %><br><small>Role</small></h5></div>
+</div>
+<hr>
 
-<p>
-  <strong>Player:</strong>
-  <%= @character.player %>
-</p>
-
-<p>
-  <strong>Calling:</strong>
-  <%= @character.calling %>
-</p>
-
-<p>
-  <strong>Nature:</strong>
-  <%= @character.nature %>
-</p>
-
-<p>
-  <strong>Pantheon:</strong>
-  <%= @character.pantheon %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @character.role %>
-</p>
-
-<%= link_to 'Edit', edit_character_path(@character) %> |
-<%= link_to 'Back', characters_path %>
+<%= link_to 'Edit', edit_character_path(@character), class: 'btn btn-primary' %> 
+<%= link_to 'Back to List', characters_path, class: 'btn btn-default' %>
