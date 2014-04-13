@@ -69,6 +69,13 @@ class CharactersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_params
-      params.require(:character).permit(:name, :player, :calling, :nature, :pantheon, :role)
+      acceptable_params = []
+      acceptable_params << [:name, :player, :calling, :nature, :pantheon, :role]
+      Character::ATTRIBUTES.each do |attribute|
+        acceptable_params << "attr_#{attribute}"
+        acceptable_params << "attr_#{attribute}_epic"
+        acceptable_params << "attr_#{attribute}_favoured"
+      end
+      params.require(:character).permit(acceptable_params)
     end
 end

@@ -25,32 +25,32 @@ ActiveRecord::Schema.define(version: 20140413123300) do
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "attr_strength"
-    t.integer  "attr_strength_epic"
+    t.integer  "attr_strength",              default: 1
+    t.integer  "attr_strength_epic",         default: 0
     t.boolean  "attr_strength_favoured"
-    t.integer  "attr_dexterity"
-    t.integer  "attr_dexterity_epic"
+    t.integer  "attr_dexterity",             default: 1
+    t.integer  "attr_dexterity_epic",        default: 0
     t.boolean  "attr_dexterity_favoured"
-    t.integer  "attr_stamina"
-    t.integer  "attr_stamina_epic"
+    t.integer  "attr_stamina",               default: 1
+    t.integer  "attr_stamina_epic",          default: 0
     t.boolean  "attr_stamina_favoured"
-    t.integer  "attr_charisma"
-    t.integer  "attr_charisma_epic"
+    t.integer  "attr_charisma",              default: 1
+    t.integer  "attr_charisma_epic",         default: 0
     t.boolean  "attr_charisma_favoured"
-    t.integer  "attr_manipulation"
-    t.integer  "attr_manipulation_epic"
+    t.integer  "attr_manipulation",          default: 1
+    t.integer  "attr_manipulation_epic",     default: 0
     t.boolean  "attr_manipulation_favoured"
-    t.integer  "attr_appearance"
-    t.integer  "attr_appearance_epic"
+    t.integer  "attr_appearance",            default: 1
+    t.integer  "attr_appearance_epic",       default: 0
     t.boolean  "attr_appearance_favoured"
-    t.integer  "attr_perception"
-    t.integer  "attr_perception_epic"
+    t.integer  "attr_perception",            default: 1
+    t.integer  "attr_perception_epic",       default: 0
     t.boolean  "attr_perception_favoured"
-    t.integer  "attr_intelligence"
-    t.integer  "attr_intelligence_epic"
+    t.integer  "attr_intelligence",          default: 1
+    t.integer  "attr_intelligence_epic",     default: 0
     t.boolean  "attr_intelligence_favoured"
-    t.integer  "attr_wits"
-    t.integer  "attr_wits_epic"
+    t.integer  "attr_wits",                  default: 1
+    t.integer  "attr_wits_epic",             default: 0
     t.boolean  "attr_wits_favoured"
   end
 

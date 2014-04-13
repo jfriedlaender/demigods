@@ -17,7 +17,32 @@
   <div class='col-md-3'><h5><%= @character.pantheon %><br><small>Pantheon</small></h5></div>
   <div class='col-md-3'><h5><%= @character.role.present? ? @character.role : 'N/A' %><br><small>Role</small></h5></div>
 </div>
+
 <hr>
 
+<h3>Attributes</h3>
+<div class='row'>
+  <div class='col-md-4'>
+    <h4>Physical</h4>  
+    <%= render 'attribute', attribute: 'strength' %>
+    <%= render 'attribute', attribute: 'dexterity' %>
+    <%= render 'attribute', attribute: 'stamina' %>
+  </div>
+  <div class='col-md-4'>
+    <h4>Social</h4>
+    <%= render 'attribute', attribute: 'charisma' %>
+    <%= render 'attribute', attribute: 'manipulation' %>
+    <%= render 'attribute', attribute: 'appearance' %>
+  </div>
+
+  <div class='col-md-4'>
+    <h4>Mental</h4>
+    <%= render 'attribute', attribute: 'perception' %>
+    <%= render 'attribute', attribute: 'intelligence' %>
+    <%= render 'attribute', attribute: 'wits' %>
+  </div>
+</div>
+
+<hr>
 <%= link_to 'Edit', edit_character_path(@character), class: 'btn btn-primary' %> 
 <%= link_to 'Back to List', characters_path, class: 'btn btn-default' %>

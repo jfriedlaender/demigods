@@ -40,8 +40,28 @@
     <%= f.text_field :role, class: 'form-control' %>
   </div>
   <hr>
-
-
+  <h2>Attributes</h2>
+  <% Character::ATTRIBUTES.each do |attribute| %>
+    <div class="form-group">
+      <h3><%= attribute.capitalize %></h3>
+      <div class="checkbox">
+        <label>
+          <%= f.check_box "attr_#{attribute}_favoured".to_sym %>
+          Favoured attribute?
+        </label>
+      </div>
+      <div class='row'>
+        <div class='col-md-6'>
+          <%= f.label "attr_#{attribute}".to_sym, "Attribute" %>
+          <%= f.select "attr_#{attribute}".to_sym, 1..10, {}, {class: 'form-control'} %>
+        </div>
+        <div class='col-md-6'>
+          <%= f.label "attr_#{attribute}_epic".to_sym, "Epic Attribute" %>
+          <%= f.select "attr_#{attribute}_epic".to_sym, 0..10, {}, {class: 'form-control'} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <hr>
   <div class="form-group">
     <%= f.submit 'Save Character', class: 'btn btn-primary' %>
