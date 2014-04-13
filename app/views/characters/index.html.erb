@@ -7,19 +7,20 @@
 <% @characters.each do |character| %>
   <div class='row'>
     <div class='col-md-12'>
-      <h2><%= link_to character.name, character_path(character) %> (<%= character.player %>)</h2>
+      <h2><%= link_to character.name, character_path(character) %> <small><%= character.player %></small></h2>
     </div>
   </div>
   <div class='row'>
-    <div class='col-md-3'><%= character.calling %></div>
-    <div class='col-md-3'><%= character.nature %></div>
-    <div class='col-md-3'><%= character.pantheon %></div>
-    <div class='col-md-3'><%= character.role %></div>
+    <div class='col-md-3'><h5><%= character.calling %><br><small>Calling</small></h5></div>
+    <div class='col-md-3'><h5><%= character.nature %><br><small>Nature</small></h5></div>
+    <div class='col-md-3'><h5><%= character.pantheon %><br><small>Pantheon</small></h5></div>
+    <div class='col-md-3'><h5><%= character.role.present? ? character.role : 'N/A' %><br><small>Role</small></h5></div>
   </div>
+  <hr>
 <% end %>
-
+<br>
 <div class='row'>
   <div class='col-md-12'>
-    <%= link_to 'New Character', new_character_path %>
+    <%= link_to 'New Character', new_character_path, class: 'btn btn-primary' %>
   </div>
 </div>
