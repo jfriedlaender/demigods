@@ -1,20 +1,32 @@
-<div class='row'>
-  <div class='col-md-4 <%= @character.send("attr_#{attribute}_favoured") ? "bg-success" : "" %>'>
-    <h5><%= attribute.capitalize %></h5>
+<div class='row top5'>
+  <div class='col-md-4'>
+    <% if @character.send("attr_#{attribute}_favoured") %>
+      <h5><%= attribute.capitalize %>*</h5>
+    <% else %>
+      <h5><%= attribute.capitalize %></h5>
+    <% end %>
   </div>
   <div class='col-md-8'>
     <% (@character.send("attr_#{attribute}")).times do %>
-      <strong style='font-size: 20px;'>&#8859;</strong>
+      <svg width="12" height="12" style="display: inline-block">
+        <circle cx="6" cy="6" r="5" stroke="#333" stroke-width="1" fill="#555"></circle>
+      </svg>
     <% end %>
     <% (10 - @character.send("attr_#{attribute}")).times do %>
-      <strong style='font-size: 20px;'>&#9675;</strong>
+      <svg width="12" height="12" style="display: inline-block">
+        <circle cx="6" cy="6" r="5" stroke="#333" stroke-width="1" fill="white"></circle>
+      </svg>
     <% end %>
     <br>
     <% (@character.send("attr_#{attribute}_epic")).times do %>
-      <p style='display: inline;'>&#9724;</p>
+      <svg width="12" height="12" style="display: inline-block">
+        <rect width="12" height="12" style="fill:#555;stroke-width:1;stroke:#333" />
+      </svg>
     <% end %>
     <% (10 - @character.send("attr_#{attribute}_epic")).times do %>
-      <p style='display: inline; font-size: 16px;'>&#9633;</p>
+      <svg width="12" height="12" style="display: inline-block">
+        <rect width="12" height="12" style="fill:white;stroke-width:1;stroke:#333" />
+      </svg>
     <% end %>
   </div>
 </div>
