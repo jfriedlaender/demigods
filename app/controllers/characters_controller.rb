@@ -15,6 +15,7 @@ class CharactersController < ApplicationController
   # GET /characters/new
   def new
     @character = Character.new
+    @character.generate_default_abilities
   end
 
   # GET /characters/1/edit

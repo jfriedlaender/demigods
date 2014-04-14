@@ -1,0 +1,21 @@
+<div class='row'>
+  <div class='col-md-6'>
+    <% if ability.favoured %>
+      <h5><%= ability.name %>*<%= " <small>#{ability.speciality}</small>" if ability.speciality.present? %></h5>
+    <% else %>
+      <h5><%= ability.name %><%= " <small>#{ability.speciality}</small>" if ability.speciality.present? %></h5>
+    <% end %>
+  </div>
+  <div class='col-md-6'>
+    <% ability.value.times do %>
+      <svg width="12" height="12" style="display: inline-block">
+        <circle cx="6" cy="6" r="5" stroke="#333" stroke-width="1" fill="#555"></circle>
+      </svg>
+    <% end %>
+    <% (5 - ability.value).times do %>
+      <svg width="12" height="24" style="display: inline-block;">
+        <circle cx="6" cy="18" r="5" stroke="#333" stroke-width="1" fill="white"></circle>
+      </svg>
+    <% end %>
+  </div>
+</div>

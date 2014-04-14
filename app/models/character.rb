@@ -1,4 +1,9 @@
 class Character < ActiveRecord::Base
+
+  has_many :abilities, dependent: :destroy
+
+  accepts_nested_attributes_for :abilities
+
   validates :name, length: {maximum: 255}, allow_blank: true
   validates :player, length: {maximum: 255}, allow_blank: true
   validates :calling, length: {maximum: 255}, allow_blank: true
@@ -28,5 +33,11 @@ class Character < ActiveRecord::Base
 
   def to_param
     "#{id}-#{name.parameterize}"
+  end
+
+  def generate_default_abilities
+    Ability.default_abilities.each do |ability|
+      self.abilities.build name: ability
+    end
   end
 end
